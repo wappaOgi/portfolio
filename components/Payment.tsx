@@ -10,20 +10,22 @@ export default function Payment({ amount }: PaymentType) {
 		<Container maxW={'5xl'} py={12}>
 			ooo
 			<PayPalButtons
-				style={{ layout: 'horizontal' }}
+				style={{
+					layout: 'horizontal',
+					color: 'blue',
+					shape: 'pill',
+					label: 'pay',
+					height: 54,
+				}}
 				createOrder={async (data: any, actions: any) => {
 					console.log('data: ', data);
 					return actions.order.create({
 						purchase_units: [
 							{
-								sku: 'YOUR_PRODUCT_STOCK_KEEPING_UNIT',
-								quantity: 'YOUR_PRODUCT_QUANTITY',
 								amount: {
 									// value: '19.00',
 									value: amount,
 								},
-								description: 'Purchase Unit test description',
-								custom_id: '64735',
 							},
 						],
 					});
