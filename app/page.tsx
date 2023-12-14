@@ -1,14 +1,17 @@
 "use client"
-import CallToActionWithAnnotation from "@/components/HeroSection"
-import SimpleThreeColumns from "@/components/Features"
-import SplitWithImage from "@/components/Testimonials"
+import SimpleThreeColumns from '@/components/Features';
+import CallToActionWithAnnotation from '@/components/HeroSection';
+import Payment from '@/components/Payment';
+import SplitWithImage from '@/components/Testimonials';
 
 export default function Home() {
-  return (
-    <>
-      <CallToActionWithAnnotation />
-      <SimpleThreeColumns />
-      <SplitWithImage />
-    </>
-  )
+	return (
+		<>
+			{/* <PayPalButtons style={{ layout: 'horizontal' }} /> */}
+			<Payment amount="66" />
+			<CallToActionWithAnnotation />
+			<SimpleThreeColumns />
+			<SplitWithImage />
+		</>
+	);
 }
