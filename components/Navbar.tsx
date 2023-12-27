@@ -11,6 +11,7 @@ import {
 	Flex,
 	Icon,
 	IconButton,
+	Image,
 	Link,
 	Popover,
 	PopoverContent,
@@ -59,46 +60,48 @@ export default function WithSubnavigation() {
 						color={useColorModeValue('gray.800', 'white')}
 					>
 						<Button as="a" href="/" variant={'link'}>
-							Logo
+							<Image src="/interit.svg" w={'95px'} />
 						</Button>
 					</Text>
 
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-						<DesktopNav />
+						{/* <DesktopNav /> */}
 					</Flex>
 				</Flex>
 
-				<Stack
-					flex={{ base: 1, md: 0 }}
-					justify={'flex-end'}
-					direction={'row'}
-					spacing={6}
-				>
-					{/* //TODO */}
-					<Button
-						as={'a'}
-						fontSize={'sm'}
-						fontWeight={400}
-						variant={'link'}
-						href="/signin"
+				{false && (
+					<Stack
+						flex={{ base: 1, md: 0 }}
+						justify={'flex-end'}
+						direction={'row'}
+						spacing={6}
 					>
-						Sign In
-					</Button>
-					<Button
-						as={'a'}
-						display={{ base: 'none', md: 'inline-flex' }}
-						fontSize={'sm'}
-						fontWeight={600}
-						color={'white'}
-						href="/signup"
-						bg={'pink.400'}
-						_hover={{
-							bg: 'pink.300',
-						}}
-					>
-						Sign Up
-					</Button>
-				</Stack>
+						{/* //TODO */}
+						<Button
+							as={'a'}
+							fontSize={'sm'}
+							fontWeight={400}
+							variant={'link'}
+							href="/signin"
+						>
+							Sign In
+						</Button>
+						<Button
+							as={'a'}
+							display={{ base: 'none', md: 'inline-flex' }}
+							fontSize={'sm'}
+							fontWeight={600}
+							color={'white'}
+							href="/signup"
+							bg={'pink.400'}
+							_hover={{
+								bg: 'pink.300',
+							}}
+						>
+							Sign Up
+						</Button>
+					</Stack>
+				)}
 			</Flex>
 
 			<Collapse in={isOpen} animateOpacity>
