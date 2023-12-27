@@ -1,6 +1,11 @@
 import { Flex, Image, Link, Text } from '@chakra-ui/react';
-import { augustus, corleone, marketDeco } from './utils/fonts';
 
+import dynamic from 'next/dynamic';
+import { augustus, corleone, marketDeco } from './utils/fonts';
+const ResponsiveRadar = dynamic(
+	() => import('@nivo/radar').then((m) => m.ResponsiveRadar),
+	{ ssr: false }
+);
 type PaymentType = {
 	amount?: string;
 };
@@ -53,15 +58,75 @@ export default function Hobbies({ amount }: PaymentType) {
 				pb={'60px'}
 				gap={5}
 			>
-				<Flex>Basketball </Flex>
-				<Flex>|</Flex>
-				<Flex>Travel </Flex>
-				<Flex>|</Flex>
-				<Flex>DJ </Flex>
-				<Flex>|</Flex>
-				<Flex>Languages </Flex>
-				<Flex>|</Flex>
-				<Flex>Dog</Flex>
+				<Flex fontSize={'36px'}>Let&apos;s see them on the chart </Flex>
+			</Flex>
+			<Flex
+				className={marketDeco.className}
+				// mt={'30px'}
+				pb={'60px'}
+				gap={5}
+				bgGradient={'linear(to-r,#12c2e9 , #c471ed ,#f64f59 )'}
+				width={'100%'}
+				height={'500px'}
+				color={'black'}
+			>
+				<ResponsiveRadar
+					data={[
+						{
+							taste: 'Football',
+							chardonay: 110,
+						},
+						{
+							taste: 'Beach Volleyball',
+							chardonay: 55,
+						},
+						{
+							taste: 'Basketball',
+							chardonay: 109,
+						},
+						{
+							taste: 'Electronic music',
+							chardonay: 71,
+						},
+						{
+							taste: 'Playing guitar',
+							chardonay: 114,
+						},
+					]}
+					keys={['chardonay']}
+					indexBy="taste"
+					valueFormat=">-.2f"
+					margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
+					borderColor={{ from: 'color' }}
+					gridLabelOffset={36}
+					dotSize={10}
+					dotColor={{ theme: 'background' }}
+					dotBorderWidth={2}
+					colors={{ scheme: 'nivo' }}
+					blendMode="multiply"
+					motionConfig="wobbly"
+					legends={[
+						{
+							anchor: 'top-left',
+							direction: 'column',
+							translateX: -50,
+							translateY: -40,
+							itemWidth: 80,
+							itemHeight: 20,
+							itemTextColor: '#999',
+							symbolSize: 12,
+							symbolShape: 'circle',
+							effects: [
+								{
+									on: 'hover',
+									style: {
+										itemTextColor: '#000',
+									},
+								},
+							],
+						},
+					]}
+				/>
 			</Flex>
 			<Flex flex={1} background={'white'} width={'100%'} paddingTop={'180px'}>
 				<Flex flexDirection={'column'} paddingLeft={'20px'}>

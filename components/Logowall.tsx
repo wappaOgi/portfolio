@@ -1,5 +1,11 @@
 import { Box, Flex, Image, SimpleGrid } from '@chakra-ui/react';
 
+import dynamic from 'next/dynamic';
+
+const ResponsiveChoropleth = dynamic(
+	() => import('@nivo/geo').then((m) => m.ResponsiveChoropleth),
+	{ ssr: false }
+);
 type PaymentType = {
 	amount?: string;
 };
@@ -13,6 +19,7 @@ export default function Logowall({ amount }: PaymentType) {
 				// width={'100%'}
 				justify={'center'}
 				align={'center'}
+				minH={'500px'}
 			>
 				<SimpleGrid
 					width={'60%'}

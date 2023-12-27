@@ -2,6 +2,7 @@
 import Hero from '@/components/Hero';
 import Hobbies from '@/components/Hobbies';
 import Logowall from '@/components/Logowall';
+import WorldMap from '@/components/Map';
 import SideProjects from '@/components/SideProjects';
 import Skills from '@/components/Skills';
 import Stats from '@/components/Stats';
@@ -28,6 +29,14 @@ export default function Home() {
 				animatedText={false}
 			/>
 			<Logowall />
+			<Hero
+				text="Location of my clients"
+				subtext={'Contries they are coming from'}
+				gradient={'linear(to-r,#C6FFDD 20%, #FBD786, #f7797d  )'}
+				fontSize={40}
+				animatedText={false}
+			/>
+			<WorldMap />
 
 			<Hero
 				text="Free time projects"
