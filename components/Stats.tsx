@@ -45,7 +45,7 @@ export default function Stats({}: PaymentType) {
 			align={'center'}
 			justify={'center'}
 			background={'dark'}
-			h={'60vh'}
+			// h={'60vh'}
 			backgroundSize={'100%'}
 			backgroundImage={'/images/mb2.png'}
 			backgroundPosition={'0 -150px'}
