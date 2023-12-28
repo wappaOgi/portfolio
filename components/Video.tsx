@@ -109,7 +109,7 @@ export default function Video({ amount }: PaymentType) {
 						}}
 					>
 						<option value={'/images/ucl.mp4'}>What I watch on TV</option>
-						<option value={'/images/me.mp4'}>About Me</option>
+						<option value={'/images/marko.mp4'}>About Me</option>
 					</Select>
 				</FormControl>
 			</Flex>
