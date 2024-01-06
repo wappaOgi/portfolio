@@ -16,6 +16,7 @@ type PaymentType = {
 export default function Video({ amount }: PaymentType) {
 	const vidRef = useRef(null);
 	const [isPlaying, setIsPlaying] = useState(false);
+
 	const [videoSrc, setVideoSrc] = useState('/images/ucl.mp4');
 	const handlePlayVideo = () => {
 		if (!isPlaying) {
@@ -27,8 +28,9 @@ export default function Video({ amount }: PaymentType) {
 			setIsPlaying(false);
 		}
 	};
+
 	return (
-		<Flex flexDirection={'row'} background={'#0c0e15'}>
+		<Flex flexDirection={{ base: 'column', xl: 'row' }} background={'#0c0e15'}>
 			<Flex
 				flexDirection={'column'}
 				align={'flex-start'}
@@ -37,25 +39,30 @@ export default function Video({ amount }: PaymentType) {
 				position={'relative'}
 				overflow={'hidden'}
 				h={'1000px'}
+				// background={{
+				// 	base: 'red', // 0px
+				// 	sm: 'blue', // ~480px. em is a relative unit and is dependant on the font size.
+				// 	md: 'violet', // ~768px
+				// 	lg: 'pink',
+				// 	xl: 'gold',
+				// 	'2xl': 'cyan',
+				// }}
 			>
 				<Flex
 					position={'absolute'}
-					transform={'rotate(7.25deg)'}
-					top={'15%'}
+					transform={{ base: 'rotate(0deg)', xl: 'rotate(7.25deg)' }}
+					top={{ base: '35%', xl: '15%' }}
 					left={'3%'}
-					maxW={'700px'}
+					maxW={{ base: '400px', xl: '700px' }}
 					zIndex={5}
 					overflow={'hidden'}
-					// background={'red'}
 				>
 					<Box
 						ref={vidRef}
 						as="video"
 						// controls
 						autoPlay={false}
-						// src="https://file-examples.com/wp-content/storage/2017/04/file_example_MP4_480_1_5MG.mp4"
 						src={videoSrc}
-						// poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
 						objectFit="contain"
 						sx={{
 							aspectRatio: '16/9',
@@ -68,6 +75,14 @@ export default function Video({ amount }: PaymentType) {
 					h={'900px'}
 					zIndex={10}
 					objectFit={'cover'}
+					display={{ base: 'none', xl: 'flex' }}
+				/>
+				<Image
+					src={'/images/oldtv.png'}
+					h={'900px'}
+					zIndex={10}
+					objectFit={'cover'}
+					display={{ base: 'flex', xl: 'none' }}
 				/>
 			</Flex>
 			<Flex
@@ -96,9 +111,9 @@ export default function Video({ amount }: PaymentType) {
 					<FormLabel>Meet me through videos</FormLabel>
 					<Select
 						onChange={(x) => {
-							console.log('x: ', x.target.value);
+							(vidRef.current as any)?.pause();
 							setVideoSrc(x?.target?.value);
-							setIsPlaying(true);
+							setIsPlaying(false);
 						}}
 						bg={'#0c0e15'}
 						sx={{
