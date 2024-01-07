@@ -46,8 +46,9 @@ export default function Stats({}: PaymentType) {
 			justify={'center'}
 			background={'dark'}
 			// h={'60vh'}
+			h={'500px'}
 			backgroundSize={'100%'}
-			backgroundImage={'/images/mb2.png'}
+			backgroundImage={'/images/mb2.jpg'}
 			backgroundPosition={'0 -150px'}
 		>
 			<Flex
