@@ -1,6 +1,7 @@
 "use client"
 import { ChakraProvider } from '@chakra-ui/react';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import { usePathname } from 'next/navigation';
 
 import SmallWithSocial from '@/components/Footer';
 import WithSubnavigation from '@/components/Navbar';
@@ -16,6 +17,19 @@ const roboto_mono = Roboto_Mono({
 	variable: '--font-roboto-mono',
 	display: 'swap',
 });
+
+function LayoutContent({ children }: { children: React.ReactNode }) {
+	const pathname = usePathname();
+	const isHomePage = pathname === '/';
+
+	return (
+		<div>
+			{!isHomePage && <WithSubnavigation />}
+			{children}
+			<SmallWithSocial />
+		</div>
+	);
+}
 
 export default function RootLayout({
 	children,
@@ -41,11 +55,7 @@ export default function RootLayout({
 			<body>
 				<PayPalScriptProvider options={initialOptions}>
 					<ChakraProvider>
-						<div>
-							<WithSubnavigation />
-							{children}
-							<SmallWithSocial />
-						</div>
+						<LayoutContent>{children}</LayoutContent>
 					</ChakraProvider>
 					{/* <PayPalButtons style={{ layout: 'horizontal' }} /> */}
 				</PayPalScriptProvider>
