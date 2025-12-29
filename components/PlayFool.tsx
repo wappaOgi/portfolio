@@ -1,4 +1,5 @@
-import { Flex, keyframes, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
 import { digital7, inter } from './utils/fonts';
 
 type PaymentType = {

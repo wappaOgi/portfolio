@@ -1,4 +1,5 @@
-import { Flex, Image, keyframes } from '@chakra-ui/react';
+import { Flex, Image } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
 import Ticker, { FinancialTicker } from 'nice-react-ticker';
 
 type PaymentType = {
