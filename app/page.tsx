@@ -93,7 +93,11 @@ export default function Home() {
 					</Link>
 
 					{/* Placeholder boxes for other projects - you can add more as needed */}
-					<Link href="#" style={{ textDecoration: 'none' }}>
+					<Link
+						href="https://clubmeter.motusbig.com/"
+						target="_blank"
+						style={{ textDecoration: 'none' }}
+					>
 						<Box
 							bg="transparent"
 							borderRadius="50px"
@@ -116,12 +120,15 @@ export default function Home() {
 								color="white"
 								className={roboto.className}
 							>
-								Project 1
+								Clubmeter{' '}
 							</Text>
 						</Box>
 					</Link>
 
-					<Link href="#" style={{ textDecoration: 'none' }}>
+					<Link
+						href="https://boutiquebudgeting.motusbig.com/"
+						style={{ textDecoration: 'none' }}
+					>
 						<Box
 							bg="transparent"
 							borderRadius="50px"
@@ -144,7 +151,7 @@ export default function Home() {
 								color="white"
 								className={roboto.className}
 							>
-								Project 2
+								Boutique Budgeting
 							</Text>
 						</Box>
 					</Link>
