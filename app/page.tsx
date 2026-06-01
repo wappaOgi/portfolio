@@ -155,6 +155,49 @@ export default function Home() {
 							</Text>
 						</Box>
 					</Link>
+
+					<Link
+						href="https://pingoo.ma1l.space/"
+						target="_blank"
+						rel="noopener noreferrer"
+						style={{ textDecoration: 'none' }}
+					>
+						<Box
+							bg="transparent"
+							borderRadius="50px"
+							p={8}
+							height="200px"
+							display="flex"
+							flexDirection="column"
+							alignItems="center"
+							justifyContent="center"
+							border="2px solid white"
+							_hover={{
+								borderColor: '#00e3fd',
+								boxShadow: '0 10px 30px rgba(0, 227, 253, 0.3)',
+								transform: 'translateY(-5px)',
+							}}
+							transition="all 0.3s"
+						>
+							<Text
+								fontSize="2xl"
+								fontWeight="bold"
+								color="white"
+								className={roboto.className}
+							>
+								Pingoo
+							</Text>
+							<Text
+								fontSize="sm"
+								color="whiteAlpha.800"
+								mt={2}
+								textAlign="center"
+								className={inter.className}
+							>
+								Online cron job
+							</Text>
+						</Box>
+					</Link>
 				</SimpleGrid>
 			</Container>
 		</Flex>
