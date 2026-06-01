@@ -1,20 +1,24 @@
 "use client"
+import './globals.css';
+
 import { ChakraProvider } from '@chakra-ui/react';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import { usePathname } from 'next/navigation';
 
 import SmallWithSocial from '@/components/Footer';
 import WithSubnavigation from '@/components/Navbar';
-import { Inter, Roboto_Mono } from '@next/font/google';
+import { Inter, Roboto } from '@next/font/google';
+
 const inter = Inter({
 	subsets: ['latin'],
 	variable: '--font-inter',
 	display: 'swap',
 });
 
-const roboto_mono = Roboto_Mono({
+const roboto = Roboto({
 	subsets: ['latin'],
-	variable: '--font-roboto-mono',
+	weight: ['400', '500', '700'],
+	variable: '--font-roboto',
 	display: 'swap',
 });
 
@@ -23,10 +27,10 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
 	const isHomePage = pathname === '/';
 
 	return (
-		<div>
+		<div className={`${inter.variable} ${roboto.variable}`}>
 			{!isHomePage && <WithSubnavigation />}
 			{children}
-			<SmallWithSocial />
+			{!isHomePage && <SmallWithSocial />}
 		</div>
 	);
 }
