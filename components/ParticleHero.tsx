@@ -253,7 +253,7 @@ export default function ParticleHero({
 				</p>
 				<div className={styles.actions}>
 					<Link href="/cv" className={styles.ctaPrimary}>
-						Start
+						Marko's CV
 					</Link>
 					<a href="#projects" className={styles.ctaSecondary}>
 						Learn
