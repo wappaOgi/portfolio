@@ -19,7 +19,7 @@ const projects = [
 		description: 'Portfolio, experience, and projects from Marko O.',
 		href: '/cv',
 		external: false,
-		image: '/images/1.png',
+		image: '/images/cv.png',
 		accent:
 			'hover:border-[#be22ff] hover:shadow-[0_10px_30px_rgba(190,34,255,0.3)]',
 	},
@@ -28,7 +28,7 @@ const projects = [
 		description: 'Track club performance and member engagement metrics.',
 		href: 'https://clubmeter.motusbig.com/',
 		external: true,
-		image: '/images/2.png',
+		image: '/images/clubmeter.png',
 		accent:
 			'hover:border-[#ff279c] hover:shadow-[0_10px_30px_rgba(255,39,156,0.3)]',
 	},
@@ -37,7 +37,7 @@ const projects = [
 		description: 'Simple budgeting tools built for small teams and boutiques.',
 		href: 'https://boutiquebudgeting.motusbig.com/',
 		external: true,
-		image: '/images/3.png',
+		image: '/images/boutique-budgeting.png',
 		accent:
 			'hover:border-[#ff981f] hover:shadow-[0_10px_30px_rgba(255,152,31,0.3)]',
 	},
@@ -46,7 +46,7 @@ const projects = [
 		description: 'Simple time tracking and shift scheduling for your business.',
 		href: 'https://temporashift.com/',
 		external: true,
-		image: '/images/3.png',
+		image: '/images/temporashift.png',
 		accent:
 			'hover:border-[#ff981f] hover:shadow-[0_10px_30px_rgba(255,152,31,0.3)]',
 	},
@@ -71,6 +71,10 @@ function ProjectCard({
 					fill
 					className="object-cover transition-transform duration-300 group-hover:scale-105"
 					sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+				/>
+				<div
+					className="pointer-events-none absolute inset-0 z-10 bg-gray-900/45 transition-opacity duration-300 group-hover:opacity-0"
+					aria-hidden
 				/>
 			</div>
 			<h3 className="font-display text-xl font-bold text-white">{title}</h3>
