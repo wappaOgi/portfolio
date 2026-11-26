@@ -1,26 +1,10 @@
 'use client';
 
-import { Manrope, Newsreader } from '@next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 import styles from './ParticleHero.module.css';
-
-const manrope = Manrope({
-	subsets: ['latin'],
-	weight: ['400', '500', '600', '700'],
-	variable: '--font-hero-body',
-	display: 'swap',
-});
-
-const newsreader = Newsreader({
-	subsets: ['latin'],
-	weight: ['400', '500'],
-	style: ['normal', 'italic'],
-	variable: '--font-hero-display',
-	display: 'swap',
-});
 
 const BUBBLE_COUNT = 10;
 const BUBBLE_SIZE: [number, number] = [1.2, 2.2];
@@ -48,7 +32,6 @@ export default function ParticleHero({
 	posterAlt = 'MotusBig',
 }: ParticleHeroProps) {
 	const heroRef = useRef<HTMLElement>(null);
-	const mediaRef = useRef<HTMLDivElement | HTMLVideoElement>(null);
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const mouseRef = useRef({ x: -9999, y: -9999, active: false });
@@ -57,12 +40,12 @@ export default function ParticleHero({
 	const reduceMotionRef = useRef(false);
 
 	const updateReveal = (x: number, y: number, active: boolean) => {
-		const media = mediaRef.current;
-		if (!media) return;
+		const hero = heroRef.current;
+		if (!hero) return;
 
-		media.style.setProperty('--reveal-x', `${x}px`);
-		media.style.setProperty('--reveal-y', `${y}px`);
-		media.style.setProperty(
+		hero.style.setProperty('--reveal-x', `${x}px`);
+		hero.style.setProperty('--reveal-y', `${y}px`);
+		hero.style.setProperty(
 			'--reveal-radius',
 			active ? `${REVEAL_RADIUS}px` : '0px',
 		);
@@ -217,17 +200,10 @@ export default function ParticleHero({
 
 	const mediaClassName = `${styles.heroMedia} ${videoSrc ? styles.heroMediaVideo : ''}`;
 
-	const setMediaRef = (node: HTMLDivElement | HTMLVideoElement | null) => {
-		mediaRef.current = node;
-		if (videoSrc && node instanceof HTMLVideoElement) {
-			videoRef.current = node;
-		}
-	};
-
 	return (
 		<section
 			ref={heroRef}
-			className={`${styles.hero} ${manrope.variable} ${newsreader.variable}`}
+			className={styles.hero}
 			aria-label="Hero"
 			onMouseEnter={handleMouseEnter}
 			onMouseMove={handleMouseMove}
@@ -238,7 +214,7 @@ export default function ParticleHero({
 		>
 			{videoSrc ? (
 				<video
-					ref={setMediaRef}
+					ref={videoRef}
 					className={mediaClassName}
 					src={videoSrc}
 					poster={posterSrc}
@@ -248,7 +224,7 @@ export default function ParticleHero({
 					preload="auto"
 				/>
 			) : (
-				<div ref={setMediaRef} className={mediaClassName}>
+				<div className={mediaClassName}>
 					<div className={styles.heroMediaPoster}>
 						<Image
 							src={posterSrc}

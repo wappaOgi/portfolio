@@ -16,7 +16,7 @@ function MotusBigLogo({ className = '' }: { className?: string }) {
 const projects = [
 	{
 		title: 'CV',
-		description: 'Portfolio, experience, and projects from Marko Ogrizović.',
+		description: 'Portfolio, experience, and projects from Marko O.',
 		href: '/cv',
 		external: false,
 		image: '/images/1.png',
@@ -42,13 +42,13 @@ const projects = [
 			'hover:border-[#ff981f] hover:shadow-[0_10px_30px_rgba(255,152,31,0.3)]',
 	},
 	{
-		title: 'Pingoo',
-		description: 'Online cron job scheduling and monitoring.',
-		href: 'https://pingoo.ma1l.space/',
+		title: 'Temporashift',
+		description: 'Simple time tracking and shift scheduling for your business.',
+		href: 'https://temporashift.com/',
 		external: true,
-		image: '/images/4.png',
+		image: '/images/3.png',
 		accent:
-			'hover:border-[#00e3fd] hover:shadow-[0_10px_30px_rgba(0,227,253,0.3)]',
+			'hover:border-[#ff981f] hover:shadow-[0_10px_30px_rgba(255,152,31,0.3)]',
 	},
 ];
 

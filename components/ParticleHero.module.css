@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
 .hero {
+	--font-hero-body: 'Manrope', system-ui, sans-serif;
+	--font-hero-display: 'Newsreader', Georgia, serif;
 	--hero-bg: #063a63;
 	--hero-ink: #f4f1e9;
 	--hero-ink-dim: rgba(244, 241, 233, 0.72);
