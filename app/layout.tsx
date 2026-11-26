@@ -7,31 +7,17 @@ import { usePathname } from 'next/navigation';
 
 import SmallWithSocial from '@/components/Footer';
 import WithSubnavigation from '@/components/Navbar';
-import { Inter, Roboto } from '@next/font/google';
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-	display: 'swap',
-});
-
-const roboto = Roboto({
-	subsets: ['latin'],
-	weight: ['400', '500', '700'],
-	variable: '--font-roboto',
-	display: 'swap',
-});
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
 	const pathname = usePathname();
 	const isHomePage = pathname === '/';
 
 	return (
-		<div className={`${inter.variable} ${roboto.variable}`}>
+		<>
 			{!isHomePage && <WithSubnavigation />}
 			{children}
 			{!isHomePage && <SmallWithSocial />}
-		</div>
+		</>
 	);
 }
 
@@ -56,7 +42,7 @@ export default function RootLayout({
       */}
 			<head />
 
-			<body>
+			<body className="font-sans antialiased">
 				<PayPalScriptProvider options={initialOptions}>
 					<ChakraProvider>
 						<LayoutContent>{children}</LayoutContent>
