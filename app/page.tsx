@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import ParticleHero from '@/components/ParticleHero';
+
 function MotusBigLogo({ className = '' }: { className?: string }) {
 	return (
 		<span
@@ -131,46 +133,7 @@ export default function Home() {
 				</div>
 			</header>
 
-			{/* Hero */}
-			<section className="bg-motus-700 px-[5%] py-16 md:py-24">
-				<div className="mx-auto max-w-7xl">
-					<div className="mx-auto max-w-3xl text-center">
-						<h1 className="font-display text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-							Build faster with MotusBig
-						</h1>
-						<p className="mt-4 text-lg text-white/80 md:text-xl">
-							Every movement we make needs to be big. Simple, powerful tools
-							built for teams that move quick.
-						</p>
-						<div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-							<Link
-								href="/cv"
-								className="rounded-md border border-white bg-white px-6 py-3 text-sm font-medium text-motus-700 transition hover:bg-white/90"
-							>
-								Start
-							</Link>
-							<a
-								href="#projects"
-								className="rounded-md border border-white/30 bg-transparent px-6 py-3 text-sm font-medium text-white transition hover:border-white"
-							>
-								Learn
-							</a>
-						</div>
-					</div>
-					<div className="relative mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-motus-600/50">
-						<div className="relative aspect-video w-full">
-							<Image
-								src="/images/hero.png"
-								alt="MotusBig"
-								fill
-								className="object-cover"
-								priority
-								sizes="(max-width: 1024px) 100vw, 1024px"
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
+			<ParticleHero />
 
 			{/* Projects (Relume layout239-style) */}
 			<section id="projects" className="bg-motus-100 px-[5%] py-16 md:py-24">
