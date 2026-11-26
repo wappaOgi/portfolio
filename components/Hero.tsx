@@ -72,7 +72,11 @@ export default function Hero({
 					<Flex
 						fontSize={`${fontSize / 2}px` || '136px'}
 						fontWeight={'bold'}
-						color={'white'}
+						color={
+							background === 'white' || background === '#fff' || background === '#ffffff'
+								? '#374151'
+								: 'white'
+						}
 						className={inter.className}
 					>
 						{subtext || 'Welcome'}

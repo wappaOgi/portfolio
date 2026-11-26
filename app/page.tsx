@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import HappyClientsSection from '@/components/HappyClientsSection';
 import ParticleHero from '@/components/ParticleHero';
 
 function MotusBigLogo({ className = '' }: { className?: string }) {
@@ -164,6 +165,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<HappyClientsSection />
 
 			{/* Stats */}
 			<section className="bg-white px-[5%] py-16 md:py-24">
