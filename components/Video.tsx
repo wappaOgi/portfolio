@@ -30,7 +30,58 @@ export default function Video({ amount }: PaymentType) {
 	};
 
 	return (
-		<Flex flexDirection={{ base: 'column', xl: 'row' }} background={'#0c0e15'}>
+		<Flex flexDirection={'column'} background={'#0c0e15'} width={'100%'}>
+			<Flex
+				width={'100%'}
+				background={'transparent'}
+				justify={'center'}
+				align={'center'}
+				flexDirection={'column'}
+				gap={5}
+				pt={8}
+				pb={4}
+				px={4}
+			>
+				<FormControl
+					color={'white'}
+					maxW={{ base: '100%', md: '28rem' }}
+					width={'100%'}
+				>
+					<FormLabel>Meet me through videos</FormLabel>
+					<Select
+						onChange={(x) => {
+							(vidRef.current as any)?.pause();
+							setVideoSrc(x?.target?.value);
+							setIsPlaying(false);
+						}}
+						bg={'#0c0e15'}
+						sx={{
+							'> option': {
+								background: '#0c0e15',
+								color: 'white',
+							},
+						}}
+					>
+						<option value={'/images/ucl.mp4'}>What I watch on TV</option>
+						<option value={'/images/marko.mp4'}>About Me</option>
+					</Select>
+				</FormControl>
+				<Box
+					_hover={{
+						background: 'transparent',
+						color: 'white',
+					}}
+					cursor={'pointer'}
+					boxShadow="2xl"
+					p="6"
+					rounded="lg"
+					bg="white"
+					onClick={handlePlayVideo}
+				>
+					{isPlaying ? <FaPause /> : <FaPlay />}
+				</Box>
+			</Flex>
+
 			<Flex
 				flexDirection={'column'}
 				align={'flex-start'}
@@ -39,14 +90,7 @@ export default function Video({ amount }: PaymentType) {
 				position={'relative'}
 				overflow={'hidden'}
 				h={'1000px'}
-				// background={{
-				// 	base: 'red', // 0px
-				// 	sm: 'blue', // ~480px. em is a relative unit and is dependant on the font size.
-				// 	md: 'violet', // ~768px
-				// 	lg: 'pink',
-				// 	xl: 'gold',
-				// 	'2xl': 'cyan',
-				// }}
+				width={'100%'}
 			>
 				<Flex
 					position={'absolute'}
@@ -60,7 +104,6 @@ export default function Video({ amount }: PaymentType) {
 					<Box
 						ref={vidRef}
 						as="video"
-						// controls
 						autoPlay={false}
 						src={videoSrc}
 						objectFit="contain"
@@ -84,49 +127,6 @@ export default function Video({ amount }: PaymentType) {
 					objectFit={'cover'}
 					display={{ base: 'flex', xl: 'none' }}
 				/>
-			</Flex>
-			<Flex
-				flex={1}
-				background={'transparent'}
-				justify={'center'}
-				align={'center'}
-				flexDirection={'column'}
-				gap={5}
-			>
-				<Box
-					_hover={{
-						background: 'transparent',
-						color: 'white',
-					}}
-					cursor={'pointer'}
-					boxShadow="2xl"
-					p="6"
-					rounded="lg"
-					bg="white"
-					onClick={handlePlayVideo}
-				>
-					{isPlaying ? <FaPause /> : <FaPlay />}
-				</Box>
-				<FormControl color={'white'} maxW={'40%'}>
-					<FormLabel>Meet me through videos</FormLabel>
-					<Select
-						onChange={(x) => {
-							(vidRef.current as any)?.pause();
-							setVideoSrc(x?.target?.value);
-							setIsPlaying(false);
-						}}
-						bg={'#0c0e15'}
-						sx={{
-							'> option': {
-								background: '#0c0e15',
-								color: 'white',
-							},
-						}}
-					>
-						<option value={'/images/ucl.mp4'}>What I watch on TV</option>
-						<option value={'/images/marko.mp4'}>About Me</option>
-					</Select>
-				</FormControl>
 			</Flex>
 		</Flex>
 	);
