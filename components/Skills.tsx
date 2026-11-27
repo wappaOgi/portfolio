@@ -142,6 +142,7 @@ export default function Skills({ amount }: PaymentType) {
 				h={'900px'}
 				zIndex={10}
 				objectFit={'cover'}
+				alt=""
 			/>
 		</Flex>
 	);

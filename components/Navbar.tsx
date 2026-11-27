@@ -60,7 +60,7 @@ export default function WithSubnavigation() {
 						color={useColorModeValue('gray.800', 'white')}
 					>
 						<Button as="a" href="/" variant={'link'}>
-							<Image src="/interit.svg" w={'95px'} />
+							<Image src="/interit.svg" w={'95px'} alt="Home" />
 						</Button>
 					</Text>
 

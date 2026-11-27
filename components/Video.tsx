@@ -119,6 +119,7 @@ export default function Video({ amount }: PaymentType) {
 					zIndex={10}
 					objectFit={'cover'}
 					display={{ base: 'none', xl: 'flex' }}
+					alt=""
 				/>
 				<Image
 					src={'/images/oldtv.png'}
@@ -126,6 +127,7 @@ export default function Video({ amount }: PaymentType) {
 					zIndex={10}
 					objectFit={'cover'}
 					display={{ base: 'flex', xl: 'none' }}
+					alt=""
 				/>
 			</Flex>
 		</Flex>
